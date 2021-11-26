@@ -7,6 +7,7 @@
 import streamlit as st
 import pandas as pd
 import time
+import numpy
 
 
 imdb = pd.read_csv("datafilm_clean.csv")

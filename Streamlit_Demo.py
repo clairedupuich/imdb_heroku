@@ -1,4 +1,4 @@
-#首先，新建一个文件“Streamlit_Demo.py”。
+#一篇示例用的python文件  可用来参考 和项目无关。
 
 import streamlit as st
 import pandas as pd
