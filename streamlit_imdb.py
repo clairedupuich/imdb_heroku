@@ -51,6 +51,10 @@ with datasait_object:
         #st.dataframe(imdb[imdb["note"].str.contains(scort)]) 不能运行，也许是因为有些scort值在列表中不存在
         masque = imdb["note"] > scort
         st.dataframe(imdb[masque])
+
+#our new film
+st.sidebar.title("The most popular film of today")
+st.sidebar.video("https://youtu.be/vDyZX0r1G1Y", start_time=1)
         
 st.markdown("<h5 style='color: #e04bd5e8; font-style:italic;'>View annual movie quality changes</h5>", unsafe_allow_html=True)
 imdb_dn = imdb[['date', 'note']]
