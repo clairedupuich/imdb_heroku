@@ -52,7 +52,7 @@ with datasait_object:
         masque = imdb["note"] > scort
         st.dataframe(imdb[masque])
         
-st.markdown("<h5 style='color: #e04bd5e8; font-style:italic;'>Here to show you all of our movies by scort</h5>", unsafe_allow_html=True)
+st.markdown("<h5 style='color: #e04bd5e8; font-style:italic;'>View annual movie quality changes</h5>", unsafe_allow_html=True)
 imdb_dn = imdb[['date', 'note']]
 imdb_dn = imdb_dn.groupby('date').agg(sum)
 st.line_chart(imdb_dn["note"])
