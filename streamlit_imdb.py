@@ -48,7 +48,7 @@ with datasait_object:
         st.dataframe(imdb[imdb["actors"].str.contains(select_actor)]) #显示带有这个演员名字的所有电影
     #choose film by scort
     if result == "runtime":
-        scort = st.slider('choose diffrent scrot', imdb["note"].min(), imdb["note"].max(), imdb["note"].mean())
+        scort = st.slider('choose diffrent scrot', float(imdb["note"].min()), float(imdb["note"].max()), float(imdb["note"].mean()))
         #st.dataframe(imdb[imdb["note"].str.contains(scort)]) 不能运行，也许是因为有些scort值在列表中不存在
         masque = imdb["note"] > float(scort)
         st.dataframe(imdb[masque])
