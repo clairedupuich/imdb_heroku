@@ -16,12 +16,14 @@ st.header("welcome in IMBD_sea of films")
 # boutton pour montrer tous les films par note
 datatable = imdb.sort_values(by="note", ascending=False)
 st.markdown("<h4 style='color: blue; text-shadow: 5px 5px 5px gray;'>Here to show you all of our movies by scort</h4>", unsafe_allow_html=True)
-# st.markdown("#### Here to show you all of our movies by scort")
 # with st.echo():用来同时在网页上显示代码和效果。
 # st.button("<style>button{color: blue;}</style>",unsafe_allow_html=True)
 if st.button('Click Me for all our film by scort'):
-    st.dataframe(datatable) # will display the dataframe
-#     #st.table(datatable)# will display the table
+    st.write("img.png")
+    # st.img("https://img.jianbihua.com/sites/default/files/styles/photo640x425domain/public/images/2018-12/20181231115910_882010.jpg")
+    with st.expander('open', expanded=False): #这个嵌套前面一定要加上with,结尾一定要加:用来表示包含和引出下面的代码。
+        st.dataframe(datatable) # will display the dataframe
+        #st.table(datatable)# will display the table
 
 datasait_object = st.container()   #通过with st.beta_container():，可以Book一个组件模块, 将一个不可见的容器插入到你的应用程序中，可以用来保存多个元素。
 st.sidebar.title("select the parameters to find the good film")
