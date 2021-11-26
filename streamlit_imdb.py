@@ -50,7 +50,7 @@ with datasait_object:
     if result == "runtime":
         scort = st.slider('choose diffrent scrot', imdb["note"].min(), imdb["note"].max(), imdb["note"].mean())
         #st.dataframe(imdb[imdb["note"].str.contains(scort)]) 不能运行，也许是因为有些scort值在列表中不存在
-        masque = imdb["note"] > scort
+        masque = imdb["note"] > float(scort)
         st.dataframe(imdb[masque])
 
 #our new film
