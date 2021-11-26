@@ -1,4 +1,3 @@
-# 代码所需的库及其版本
 streamlit
 pandas
 numpy
