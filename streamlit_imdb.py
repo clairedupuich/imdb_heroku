@@ -34,36 +34,15 @@ with datasait_object:
         st.dataframe(data = imdb[imdb["title"] == title_var], height = 450)
     # choose film by type
     if result == "type":
-        list_type = ["Comedy","Horror","Drama"]
-        type_var = st.sidebar.selectbox("which type exactly?",  list_type, key=None)
-        if type_var == "Comedy":
-            masque = imdb["genre"].str.contains("Comedy") 
-            new_list = imdb[masque].sort_values(by="note",ascending=False)
-            film_comedy = new_list['title'].values
-            type_hor = st.sidebar.selectbox("which fime horror?",  film_comedy, key=None)
-            st.subheader("Here are all our comedy films")
-            st.dataframe(new_list, height = 450)
-        if type_var == "Horror":
-            masque = imdb["genre"].str.contains("Horror") 
-            new_list = imdb[masque].sort_values(by="note",ascending=False)
-            film_horror = new_list['title'].values
-            type_hor = st.sidebar.selectbox("which fime horror?",  film_horror, key=None)
-            st.subheader("Here are all our horror films")
-            st.dataframe(new_list, height = 450)
-        if type_var == "Drama":
-            masque = imdb["genre"].str.contains("Drama") 
-            new_list = imdb[masque].sort_values(by="note",ascending=False)
-            film_drama = new_list['title'].values
-            type_hor = st.sidebar.selectbox("which fime horror?",  film_drama, key=None)
-            st.subheader("Here are all our drama films")
-            st.dataframe(new_list, height = 450)
-    if result == "actor":
-    
-            imdb["actors_list"] = imdb["actors"].str.split(",")
-            
-            list_actors = imdb.explode("actors_list")["actors_list"].unique()   #去除重复的演员名字         
-            select_actor = st.sidebar.selectbox("which actor?",  list_actors, key=None)
-            st.dataframe(imdb[imdb["actors"].str.contains(select_actor)]) #显示带有这个演员名字的所有电影
+        imdb["genre_list"] = imdb["genre"].str.split(",")
+        list_genre = imdb.explode("genre_list")["genre_list"].unique()   #去除重复的genre         
+        select_genre = st.sidebar.selectbox("which genre excatly?",  list_genre, key=None)
+        st.dataframe(imdb[imdb["genre"].str.contains(select_genre)]) #显示带有这个genre的所有电影
+    if result == "actor":   
+        imdb["actors_list"] = imdb["actors"].str.split(",")    
+        list_actors = imdb.explode("actors_list")["actors_list"].unique()   #去除重复的演员名字         
+        select_actor = st.sidebar.selectbox("which actor?",  list_actors, key=None)
+        st.dataframe(imdb[imdb["actors"].str.contains(select_actor)]) #显示带有这个演员名字的所有电影
     #choose film by scort
     if result == "runtime":
         scort = st.slider('choose diffrent scrot', imdb["note"].min(), imdb["note"].max(), imdb["note"].mean())
