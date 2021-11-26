@@ -19,9 +19,9 @@ st.markdown("<h4 style='color: blue; text-shadow: 5px 5px 5px gray;'>Here to sho
 # with st.echo():用来同时在网页上显示代码和效果。
 # st.button("<style>button{color: blue;}</style>",unsafe_allow_html=True)
 if st.button('Click Me for all our film by scort'):
-    st.write("img.png")
     # st.img("https://img.jianbihua.com/sites/default/files/styles/photo640x425domain/public/images/2018-12/20181231115910_882010.jpg")
     with st.expander('open', expanded=False): #这个嵌套前面一定要加上with,结尾一定要加:用来表示包含和引出下面的代码。
+        st.image('img.png')
         st.dataframe(datatable) # will display the dataframe
         #st.table(datatable)# will display the table
 
